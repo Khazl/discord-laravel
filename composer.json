@@ -1,0 +1,36 @@
+{
+    "name": "khazl/discord-laravel",
+    "description": "Laravel implementation for sending messages to Discord hooks",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Guido Gasper",
+        }
+    ],
+    "homepage": "https://github.com/khazl/discord-laravel",
+    "keywords": ["Laravel", "Discord"],
+    "require": {
+        "illuminate/support": "~7|~8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~5|~6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Khazl\\Discord\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Khazl\\Discord\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Khazl\\Discord\\DiscordServiceProvider"
+            ]
+        }
+    }
+}
