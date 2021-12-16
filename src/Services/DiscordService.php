@@ -19,11 +19,11 @@ class DiscordService implements DiscordServiceInterface
      */
     static public function send(string $hookName, string $message): void
     {
-        $message = [
+        $payload = [
             'username' => config('discord.name', 'Captain Hook'),
             'content' => $message
         ];
 
-        Http::post(config('discord.base_url'). config("discord.hooks.{$hookName}", 'undefined-hook'), $message);
+        Http::post(config('discord.base_url'). config("discord.hooks.{$hookName}", 'undefined-hook'), $payload);
     }
 }
