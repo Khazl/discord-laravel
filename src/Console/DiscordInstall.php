@@ -38,7 +38,6 @@ class DiscordInstall extends Command
     public function handle()
     {
         $this->comment('Publishing Discord Config ...');
-
         $this->callSilent('vendor:publish', ['--tag' => 'discord.config']);
 
         $this->info('Installation done. Have fun!');
