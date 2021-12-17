@@ -15,7 +15,7 @@ class DiscordService implements DiscordServiceInterface
     public function send(string $hookName, string $message): void
     {
         $payload = [
-            'username' => config('discord.name', 'Captain Hook'),
+            'username' => config('discord.name'),
             'content' => $message
         ];
 
