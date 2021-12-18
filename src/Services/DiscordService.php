@@ -2,17 +2,14 @@
 
 
 namespace Khazl\Discord\Services;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use Khazl\Discord\Contracts\DiscordServiceInterface;
 
 class DiscordService implements DiscordServiceInterface
 {
 
-    /**
-     * @param string $hookName
-     * @param string $message
-     */
-    public function send(string $hookName, string $message): void
+    public function send(string $hookName, string $message): Response
     {
         $payload = [
             'username' => config('discord.name'),
@@ -22,6 +19,6 @@ class DiscordService implements DiscordServiceInterface
         $hook = config('discord.base_url').
             config("discord.hooks.{$hookName}", 'undefined-hook');
 
-        Http::post($hook, $payload);
+        return Http::post($hook, $payload);
     }
 }

@@ -30,3 +30,11 @@ public function SendSomething(DiscordServiceInterface $discordService)
 ``` php
 Discord::send('default', 'Something happened!');
 ```
+
+The `send` method returns an `Illuminate\Http\Client\Response` object. 
+If you want to check if your call was successful, you can check for the status code.
+``` php
+if ($discordService->send('default', 'Something happened!')->status() === 204) {
+    // Something
+}
+```
